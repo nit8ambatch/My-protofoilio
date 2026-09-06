@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hemanth - AWS, Azure, DevOps and Linux Administrator with 6.5+ years of experience.">
+  <title>Hemanth | Cloud & DevOps Engineer</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --card: #0d1b2e;
+      --card2: #10243c;
+      --text: #eaf2ff;
+      --muted: #9fb1c8;
+      --accent: #4da3ff;
+      --accent2: #7c5cff;
+      --border: rgba(255,255,255,.10);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(77,163,255,.14), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(124,92,255,.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max)); margin: auto; }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+      background: rgba(7,17,31,.82); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      min-height: 70px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .logo { font-size: 1.25rem; font-weight: 800; letter-spacing: .5px; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .92rem; transition: .25s; }
+    .nav-links a:hover { color: var(--text); }
+    .menu { display:none; background:none; border:0; color:white; font-size:1.5rem; }
+    section { padding: 95px 0; }
+    .hero { min-height: 100vh; display:flex; align-items:center; padding-top:120px; }
+    .hero-grid { display:grid; grid-template-columns: 1.3fr .7fr; gap:55px; align-items:center; }
+    .eyebrow {
+      display:inline-block; padding:7px 12px; border:1px solid var(--border);
+      border-radius:999px; color:#bcd7ff; background:rgba(77,163,255,.08);
+      font-size:.82rem; margin-bottom:18px;
+    }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: .98; letter-spacing:-3px; }
+    h1 span { color:var(--accent); }
+    .hero h2 { margin-top:18px; font-size:1.45rem; color:#d6e4f8; }
+    .hero p { margin-top:18px; max-width:680px; color:var(--muted); font-size:1.05rem; }
+    .buttons { display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 20px; border-radius:10px; font-weight:700; border:1px solid var(--border);
+      transition:.25s;
+    }
+    .btn.primary { background:linear-gradient(135deg,var(--accent),var(--accent2)); border:0; }
+    .btn.secondary { background:rgba(255,255,255,.03); }
+    .btn:hover { transform:translateY(-2px); }
+    .profile-card {
+      background:linear-gradient(145deg, rgba(16,36,60,.95), rgba(13,27,46,.95));
+      border:1px solid var(--border); border-radius:24px; padding:30px;
+      box-shadow:0 25px 80px rgba(0,0,0,.28);
+    }
+    .avatar {
+      width:145px; height:145px; margin:0 auto 25px; border-radius:50%;
+      display:grid; place-items:center; font-size:3.3rem; font-weight:800;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 50px rgba(77,163,255,.22);
+    }
+    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .stat { padding:16px; background:rgba(255,255,255,.035); border:1px solid var(--border); border-radius:14px; text-align:center; }
+    .stat strong { display:block; font-size:1.4rem; }
+    .stat small { color:var(--muted); }
+    .section-head { margin-bottom:38px; }
+    .section-head .tag { color:var(--accent); text-transform:uppercase; letter-spacing:2px; font-size:.75rem; font-weight:800; }
+    .section-head h2 { font-size:2.2rem; margin-top:7px; }
+    .section-head p { color:var(--muted); max-width:700px; margin-top:8px; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:25px; }
+    .card {
+      background:rgba(13,27,46,.75); border:1px solid var(--border);
+      border-radius:18px; padding:25px;
+    }
+    .card h3 { margin-bottom:10px; }
+    .card p { color:var(--muted); }
+    .skills { display:grid; grid-template-columns:repeat(4,1fr); gap:15px; }
+    .skill {
+      padding:20px; background:rgba(13,27,46,.75); border:1px solid var(--border);
+      border-radius:16px; transition:.25s;
+    }
+    .skill:hover { transform:translateY(-4px); border-color:rgba(77,163,255,.4); }
+    .skill .icon { font-size:1.8rem; margin-bottom:9px; }
+    .skill h3 { font-size:1rem; }
+    .skill p { color:var(--muted); font-size:.85rem; margin-top:5px; }
+    .timeline { position:relative; margin-left:12px; padding-left:28px; border-left:1px solid rgba(77,163,255,.35); }
+    .job { position:relative; margin-bottom:28px; }
+    .job::before {
+      content:""; position:absolute; left:-35px; top:7px; width:12px; height:12px;
+      border-radius:50%; background:var(--accent); box-shadow:0 0 0 5px rgba(77,163,255,.10);
+    }
+    .job .date { color:var(--accent); font-size:.82rem; font-weight:700; }
+    .job h3 { margin-top:4px; font-size:1.2rem; }
+    .job p { color:var(--muted); margin-top:5px; }
+    .chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+    .chip { padding:5px 9px; border-radius:999px; background:rgba(77,163,255,.08); border:1px solid var(--border); color:#c9ddf8; font-size:.76rem; }
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .project { min-height:210px; display:flex; flex-direction:column; justify-content:space-between; }
+    .project h3 { font-size:1.15rem; }
+    .project p { margin-top:8px; }
+    .project .tech { margin-top:20px; color:#c4d8f1; font-size:.82rem; }
+    .contact {
+      text-align:center; padding:55px 25px; border:1px solid var(--border);
+      border-radius:24px; background:linear-gradient(145deg,rgba(16,36,60,.8),rgba(13,27,46,.8));
+    }
+    .contact p { color:var(--muted); max-width:650px; margin:12px auto 25px; }
+    footer { padding:30px 0; border-top:1px solid var(--border); color:var(--muted); text-align:center; font-size:.85rem; }
+    @media(max-width:850px) {
+      .hero-grid,.about-grid { grid-template-columns:1fr; }
+      .skills { grid-template-columns:repeat(2,1fr); }
+      .project-grid { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+      .menu { display:block; }
+    }
+    @media(max-width:520px) {
+      .skills { grid-template-columns:1fr; }
+      h1 { letter-spacing:-2px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">Hemanth<span>.</span></a>
+      <button class="menu" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">AWS • Azure • DevOps • Linux Administration</div>
+        <h1>Hi, I'm <span>Hemanth</span></h1>
+        <h2>Cloud & DevOps Engineer</h2>
+        <p>
+          AWS and Azure professional with <strong>6.5+ years of IT experience</strong>,
+          specializing in cloud infrastructure, DevOps automation, Linux administration,
+          containerization, Kubernetes and production server implementations.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#contact">Let's Connect</a>
+          <a class="btn secondary" href="#experience">View Experience</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="avatar">H</div>
+        <div class="stats">
+          <div class="stat"><strong>6.5+</strong><small>Years Experience</small></div>
+          <div class="stat"><strong>AWS</strong><small>Cloud</small></div>
+          <div class="stat"><strong>Azure</strong><small>Cloud</small></div>
+          <div class="stat"><strong>DevOps</strong><small>Automation</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">About Me</div>
+        <h2>Cloud, DevOps & Production Infrastructure</h2>
+        <p>Hands-on experience designing, implementing and supporting real-world infrastructure and deployment environments.</p>
+      </div>
+      <div class="about-grid">
+        <div class="card">
+          <h3>Professional Profile</h3>
+          <p>
+            I am Hemanth, a Cloud & DevOps professional with 6.5+ years of experience
+            across AWS, Azure, DevOps tools and Linux administration. I have worked
+            with production servers and implemented infrastructure and deployment solutions
+            focused on reliability, automation and operational efficiency.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Core Strengths</h3>
+          <p>
+            Cloud infrastructure, CI/CD, containerization, Kubernetes administration,
+            Infrastructure as Code, Linux server administration, production deployments,
+            troubleshooting and technical implementation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">Technical Skills</div>
+        <h2>Tools & Technologies</h2>
+      </div>
+      <div class="skills">
+        <div class="skill"><div class="icon">☁️</div><h3>AWS</h3><p>Cloud infrastructure & services</p></div>
+        <div class="skill"><div class="icon">🔷</div><h3>Microsoft Azure</h3><p>Cloud & application platforms</p></div>
+        <div class="skill"><div class="icon">🐧</div><h3>Linux Administration</h3><p>Servers, troubleshooting & operations</p></div>
+        <div class="skill"><div class="icon">🔄</div><h3>Jenkins</h3><p>CI/CD automation</p></div>
+        <div class="skill"><div class="icon">☸️</div><h3>Kubernetes</h3><p>Container orchestration</p></div>
+        <div class="skill"><div class="icon">🐳</div><h3>Docker</h3><p>Containerization & images</p></div>
+        <div class="skill"><div class="icon">🏗️</div><h3>Terraform</h3><p>Infrastructure as Code</p></div>
+        <div class="skill"><div class="icon">⚙️</div><h3>DevOps</h3><p>Automation & deployment</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">Career</div>
+        <h2>Professional Experience</h2>
+        <p>Organizations where I have contributed to infrastructure, cloud, DevOps and technical operations.</p>
+      </div>
+      <div class="timeline">
+        <div class="job">
+          <div class="date">Professional Experience</div>
+          <h3>Appstix Technology</h3>
+          <p>Cloud / DevOps / Linux responsibilities and infrastructure operations.</p>
+          <div class="chips"><span class="chip">AWS</span><span class="chip">Linux</span><span class="chip">DevOps</span></div>
+        </div>
+        <div class="job">
+          <div class="date">Professional Experience</div>
+          <h3>OnPassive</h3>
+          <p>Worked on cloud and infrastructure environments with focus on technical operations.</p>
+          <div class="chips"><span class="chip">Cloud</span><span class="chip">Linux</span><span class="chip">DevOps</span></div>
+        </div>
+        <div class="job">
+          <div class="date">Professional Experience</div>
+          <h3>Motivity Labs</h3>
+          <p>Contributed to technical infrastructure and deployment-related activities.</p>
+          <div class="chips"><span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">CI/CD</span></div>
+        </div>
+        <div class="job">
+          <div class="date">Professional Experience</div>
+          <h3>NareshIT</h3>
+          <p>Technical and cloud/DevOps-oriented responsibilities.</p>
+          <div class="chips"><span class="chip">Azure</span><span class="chip">Linux</span><span class="chip">DevOps</span></div>
+        </div>
+        <div class="job">
+          <div class="date">Professional Experience</div>
+          <h3>DDUGKY</h3>
+          <p>Technical implementation and infrastructure-related experience.</p>
+          <div class="chips"><span class="chip">Linux</span><span class="chip">Cloud</span><span class="chip">Administration</span></div>
+        </div>
+        <div class="job">
+          <div class="date">June 2026 — Present</div>
+          <h3>Eduleem School of Design & IT</h3>
+          <p>Cloud, DevOps and technical training responsibilities with hands-on implementation.</p>
+          <div class="chips"><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">DevOps</span><span class="chip">Training</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">Implementation</div>
+        <h2>Production & DevOps Experience</h2>
+      </div>
+      <div class="project-grid">
+        <div class="card project">
+          <div><h3>Production Server Implementation</h3><p>Implemented and managed production server environments with focus on stability, availability and operational support.</p></div>
+          <div class="tech">Linux • Cloud • Infrastructure</div>
+        </div>
+        <div class="card project">
+          <div><h3>Containerized Applications</h3><p>Worked with Docker and Kubernetes to build, deploy and manage containerized workloads.</p></div>
+          <div class="tech">Docker • Kubernetes</div>
+        </div>
+        <div class="card project">
+          <div><h3>CI/CD Automation</h3><p>Used Jenkins and DevOps practices to automate application build and deployment workflows.</p></div>
+          <div class="tech">Jenkins • DevOps • CI/CD</div>
+        </div>
+        <div class="card project">
+          <div><h3>Infrastructure as Code</h3><p>Used Terraform to define and automate cloud infrastructure in a repeatable manner.</p></div>
+          <div class="tech">Terraform • AWS • Azure</div>
+        </div>
+        <div class="card project">
+          <div><h3>Cloud Infrastructure</h3><p>Hands-on experience with AWS and Azure cloud environments and their infrastructure components.</p></div>
+          <div class="tech">AWS • Azure • Linux</div>
+        </div>
+        <div class="card project">
+          <div><h3>Technical Troubleshooting</h3><p>Strong hands-on troubleshooting approach for Linux, containers, deployments and cloud infrastructure.</p></div>
+          <div class="tech">Linux • Kubernetes • Cloud</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div class="section-head" style="margin-bottom:0">
+          <div class="tag">Contact</div>
+          <h2>Let's Build Something Reliable</h2>
+          <p>Interested in cloud infrastructure, DevOps automation, production deployments or technical training? Let's connect.</p>
+        </div>
+        <div class="buttons" style="justify-content:center">
+          <a class="btn primary" href="mailto:your-email@example.com">Email Me</a>
+          <a class="btn secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p style="font-size:.78rem;margin-top:18px">Replace the email and LinkedIn placeholders with your actual contact details.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Hemanth. Cloud & DevOps Engineer.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    if (nav.style.display === "flex") {
+      nav.style.flexDirection = "column";
+      nav.style.position = "absolute";
+      nav.style.top = "70px";
+      nav.style.right = "4%";
+      nav.style.background = "#0d1b2e";
+      nav.style.padding = "18px";
+      nav.style.border = "1px solid rgba(255,255,255,.10)";
+      nav.style.borderRadius = "14px";
+    }
+  }
+</script>
+</body>
+</html>
+
